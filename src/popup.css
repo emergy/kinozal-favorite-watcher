@@ -1,0 +1,19 @@
+body {
+	min-width: 500px;
+	overflow-x: hidden;
+    white-space: nowrap;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h3 {
+	text-align: center;
+	display: none;
+}
+
+td {
+	padding-right: 50px;
+}

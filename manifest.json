@@ -1,0 +1,77 @@
+{
+    "manifest_version": 2,
+
+    "name": "Kinozal Favorite Watcher",
+    "description": "Оповещает об обновлении любимых раздач",
+    "version": "1.99.1",
+
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "background",
+        "alarms",
+        "http://kinozal.tv/"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["http://kinozal.tv/details.php*"],
+            "css": ["lib/bootstrap.min.css"],
+            "js": [
+                "lib/jquery.js",
+                "lib/popper.min.js",
+                "lib/bootstrap.min.js",
+                "lib/md5.js",
+                "src/parser.js",
+                "src/content_details.js"
+            ]
+        },
+        {
+            "matches": ["http://kinozal.tv/top.php*"],
+            "css": ["lib/bootstrap.min.css"],
+            "js": [
+                "lib/jquery.js",
+                "lib/popper.min.js",
+                "lib/bootstrap.min.js",
+                "src/parser.js",
+                "lib/translit.js",
+                "src/content_top.js"
+            ]
+        },
+        {
+            "matches": ["http://kinozal.tv/browse.php*"],
+            "css": ["lib/bootstrap.min.css"],
+            "js": [
+                "lib/jquery.js",
+                "lib/popper.min.js",
+                "lib/bootstrap.min.js",
+                "lib/md5.js",
+                "src/parser.js",
+                "src/content_search.js"
+            ]
+        }
+    ],
+
+    "background": {
+        "scripts": [
+            "lib/jquery.js",
+            "lib/md5.js",
+            "src/counter.js",
+            "src/parser.js",
+            "src/background.js"
+        ],
+
+        "persistent": false
+    },
+
+    "browser_action": {
+        "default_title": "Открыть список раздач",
+        "default_popup": "src/popup.html"
+    },
+
+    "icons": {
+        "128": "icons/128x128.png",
+        "48": "icons/48x48.png"
+    }
+ }
